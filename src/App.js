@@ -7,6 +7,7 @@ import AboutUs from './Components/AboutUs';
 import Alert from './Components/Alert';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
+import Welcome from './Components/Welcome';
 
 function App() {
 
@@ -42,32 +43,34 @@ function App() {
   }
   return (
     <BrowserRouter>
-    <>
-      <Navbar title="TextTile@.Com" about="About Us" changemode={changemode} mode={mode} addlert={addalert} />
-      <Alert alert={alert} />
-     
-    
-    
-    <Switch>
+      <>
+        <Navbar title="TextUtilities.Com" about="About Us" changemode={changemode} mode={mode} addlert={addalert} />
 
-<Route exact path="/about">
-  
-  <AboutUs/>
-  </Route>
+        <Alert alert={alert} />
 
-  <Route exact path="/home">
-  
-  <TextForm title="Enter Text To Do operations" mode={mode} addalert={addalert} />
-  </Route>
 
-    </Switch>
-    
-    
-    
-    </>
+        <Switch>
+          <Route exact path="/">
+            <Welcome mode={mode} />
+          </Route>
+          <Route exact path="/home">
+
+            <TextForm title="Enter Text To Do operations" mode={mode} addalert={addalert} />
+          </Route>
+
+          <Route exact path="/about">
+
+            <AboutUs />
+          </Route>
+
+        </Switch>
+
+
+
+      </>
 
     </BrowserRouter>
-    
+
   );
 }
 
